@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task_2/components/movie_tile.dart';
 import 'package:flutter_task_2/constants.dart';
 import 'package:flutter_task_2/models/movie.dart';
+import 'package:flutter_task_2/screens/company_info.dart';
 import 'package:flutter_task_2/screens/welcome_page.dart';
 import 'package:flutter_task_2/services/api_service.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -72,9 +73,19 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         centerTitle: true,
-        leading: const Icon(
-          Icons.menu,
-          color: Colors.white,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.menu,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const CompanyInfo(),
+              ),
+            );
+          },
         ),
         title: Text(
           'Movie List',
